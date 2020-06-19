@@ -42,10 +42,11 @@ before_deploy:
 
 deploy:
   provider: script
-  script: netlify deploy -s loving-murdock-1be57f -t $FIRST_REACT_DOCKER -p ./build
+  script: netlify deploy -s loving-murdock-1be57f -t $FIRST_REACT_DOCKER
   skip_cleanup: true
   on:
     branch: master
+  dir: "_build/"
 
 =================================================================================
 
@@ -55,7 +56,7 @@ before_deploy:
 
 deploy:
   provider: script
-  script: netlify deploy -s loving-murdock-1be57f --auth $FIRST_REACT_DOCKER -p --dir ./build
-  skip_cleanup: true
+  script: netlify deploy -s loving-murdock-1be57f --auth $FIRST_REACT_DOCKER
   on:
     branch: master
+  dir: "_build/"
