@@ -8,3 +8,6 @@ before_install:
 script:
   - docker run ahmedkhaledre/docker-react npm run test -- --coverage
 
+after_success:
+  - chmod +x ./publish.sh
+  - ./publish.sh
