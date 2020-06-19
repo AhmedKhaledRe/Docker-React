@@ -24,3 +24,10 @@ deploy:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: "$AWS_SECRET_KEY"
+
+
+deploy:
+  provider: netlify
+  site: loving-murdock-1be57f
+  auth: FIRST_REACT_DOCKER
+  edge: true # opt in to dpl v2

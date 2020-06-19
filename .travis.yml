@@ -8,8 +8,14 @@ before_install:
 script:
   - docker run ahmedkhaledre/docker-react npm run test -- --coverage
 
-  deploy:
-    provider: netlify
-    site: loving-murdock-1be57f
-    auth: FIRST_REACT_DOCKER
-    edge: true # opt in to dpl v2
+
+before_deploy:
+  - npm install netlify-cli -g
+  - npm run build
+
+deploy:
+  provider: script
+  script: netlify deploy -s loving-murdock-1be57f -t $FIRST_REACT_DOCKER -p ./build
+  skip_cleanup: true
+  on:
+    branch: master
