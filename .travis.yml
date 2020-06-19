@@ -8,6 +8,8 @@ before_install:
 script:
   - docker run ahmedkhaledre/docker-react npm run test -- --coverage
 
-after_success:
-  - chmod +x ./publish.sh
-  - ./publish.sh
+  deploy:
+    provider: netlify
+    site: loving-murdock-1be57f
+    auth: FIRST_REACT_DOCKER
+    edge: true # opt in to dpl v2
